@@ -1,6 +1,8 @@
-//
-// Created by julia on 24/03/2026.
-//
+// Laboratório 1: questão 3
+// Disciplina: Linguagens de programação
+// Data: 03/2026
+// Código que armazena três nomes distintos, valida eles e exibe na tela os nomes validados inseridos
+// Autora: Júlia Barbosa
 
 #include "agenda.h"
 #include <iostream>
@@ -9,30 +11,35 @@ using namespace std;
 
 class Agenda {
     public:
+        // recebe os nomes e chama o metodo validaNome para validar os nomes inseridos
         void setNomes() {
             string nome;
-            for (int i=1; i<4; i++) {
+            for (int i=0; i<3; i++) {
                 cout<<"Digite um nome: "<<endl;
                 getline(cin, nome);
                 nomes[i] = validaNome(nome);
             }
         }
-        string getNomes() {
-            for (int i=0; i<4; i++) {
-                cout<<nomes[i]<<endl;
+
+        // exibe os nomes validados
+        void getNomes() {
+            cout<<"Os nomes digitados foram:"<<endl;
+            for (int i=0; i<3; i++) {
+                cout<<i+1<<": "<<nomes[i]<<endl;
             }
 
         }
     private:
         string nomes[3];
+
+        // valida os nomes inseridos no metodo setNome
         string validaNome(string nome) {
-
-            if (nome.length() > 10)
-                cout << "tem mais de 10" << endl;
+            if (nome.length() > 10) {
                 nome = nome.substr(0, 10);
-                cout << nome << endl;
-
+                cout << "Esse nome tem mais de 10 caracteres e foi alterado para: " << nome<<endl;
+            }
             return nome;
+
         }
 };
 

@@ -1,6 +1,8 @@
-//
-// Created by julia on 24/03/2026.
-//
+// Laboratório 1: questão 2
+// Disciplina: Linguagens de programação
+// Data: 03/2026
+// Código que retorna o indice x na série fibonacci. Versão utilizando programação orientada a objetos
+// Autora: Júlia Barbosa
 
 #include "fibonacci.h"
 #include <iostream>
@@ -30,5 +32,5 @@ int main() {
     cin >> n;
     Fibonacci fibonacci;
     fibonacci.setFibonacci(n);
-    cout << "numero: " << fibonacci.getFibonacci();
+    cout << "numero: " << fibonacci.getFibonacci()<<endl;
 }

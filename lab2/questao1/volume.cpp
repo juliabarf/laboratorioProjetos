@@ -27,7 +27,7 @@ int Paralelepipedo::getVolume() {
     return calculaVolume();
 }
 
-
+// Arquivo principal
 int main() {
     int dx, dy, dz;
     cout<<"Digite x: ";

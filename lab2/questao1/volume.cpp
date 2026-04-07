@@ -41,5 +41,5 @@ int main() {
 
     Paralelepipedo paralelepipedo(dx,dy,dz);
 
-    cout<<"O volume do paralelepipedo é: " << paralelepipedo.getVolume();
+    cout<<"O volume do paralelepipedo é: " << paralelepipedo.getVolume()<<endl;
 }

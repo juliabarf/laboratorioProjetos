@@ -1,6 +1,9 @@
-//
-// Created by julia on 28/03/2026.
-//
+// Laboratório 2: questão b
+// Disciplina: Linguagens de programação
+// Data: 04/2026
+// Código que retorna a distância entre dois pontos.
+// Autora: Júlia Barbosa
+// arquivo.cpp
 
 #include "distancia.h"
 #include <iostream>

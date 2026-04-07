@@ -1,8 +1,9 @@
 // Laboratório 2: questão b
 // Disciplina: Linguagens de programação
 // Data: 04/2026
-// Código que retorna a distância de dois pontos.
+// Escopo do código que retorna a distância entre dois pontos.
 // Autora: Júlia Barbosa
+// arquivo.h
 
 #include <string>
 #include <iostream>

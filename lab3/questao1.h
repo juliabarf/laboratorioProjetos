@@ -1,0 +1,13 @@
+//
+// Created by julia on 14/04/2026.
+//
+
+#ifndef LABORATORIOPROJETOS_QUESTAO1_H
+#define LABORATORIOPROJETOS_QUESTAO1_H
+
+
+class questao1 {
+};
+
+
+#endif //LABORATORIOPROJETOS_QUESTAO1_H

@@ -12,7 +12,7 @@ class Paralelepipedo {
         Paralelepipedo(int, int, int);
         void setVolume(int, int, int);
         int getVolume();
-        int calculaVolume();
+        int calculaVolume() const;
 
     private:
         int x,y,z;

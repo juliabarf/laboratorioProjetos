@@ -19,7 +19,7 @@ void Paralelepipedo::setVolume(int v1, int v2, int v3) {
     else {x = v1, y = v2, z = v3;}
 }
 
-int Paralelepipedo::calculaVolume() {
+int Paralelepipedo::calculaVolume() const {
     return x * y * z;
 }
 

@@ -1,0 +1,16 @@
+//
+// Created by julia on 10/04/2026.
+//
+
+#ifndef LABORATORIOPROJETOS_DIFERENCA_H
+#define LABORATORIOPROJETOS_DIFERENCA_H
+
+
+
+class diferenca {
+
+};
+
+
+
+#endif //LABORATORIOPROJETOS_DIFERENCA_H

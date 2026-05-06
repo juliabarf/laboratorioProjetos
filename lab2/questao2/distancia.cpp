@@ -16,9 +16,7 @@ void printCoordenadas(Ponto p) {
     cout << "("<<p.getPontoX() <<","<< p.getPontoY() <<","<< p.getPontoZ() << ")"<<endl;
 }
 
-Ponto::Ponto(double vx, double vy, double vz) {
-    x = vx; y = vy; z = vz;
-}
+Ponto::Ponto(double vx, double vy, double vz) {x = vx; y = vy; z = vz;}
 void Ponto::setPontoX(double vx) {x = vx;}
 void Ponto::setPontoY(double vy) {y = vy;}
 void Ponto::setPontoZ(double vz) {z = vz;}

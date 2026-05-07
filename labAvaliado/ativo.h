@@ -11,6 +11,7 @@ class Ativo {
         Ativo(string nome);
         void adicionarRegistro(RegistroValor r);
         void exibirRelatorio();
+        void media_movel();
         string getNome();
 
     private:

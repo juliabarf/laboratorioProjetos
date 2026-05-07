@@ -4,7 +4,10 @@
 class SistemaFinanceiro {
     public:
         void inserir_ativo(Ativo a);
-        int  localiza_ativo(string nome);
+        string localiza_ativo(string nome);
+        void adicionar_registro(string nome, RegistroValor r);
+        void exibir_media();
+        void listar_ativos();
     private:
         vector<Ativo> ativos;
 };

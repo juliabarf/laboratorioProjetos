@@ -7,14 +7,12 @@
 #include <iostream>
 using namespace std;
 
-RegistroValor::RegistroValor(string n, double preco) {
-    nomeIndicador = n;
-    valor = preco;
-}
-double RegistroValor::get_valor() {
-    return valor;
-}
-string RegistroValor::get_nome() {
-    return nomeIndicador;
-}
+//construtor registra valor pra inicializar os atributos
+RegistroValor::RegistroValor(string n, double preco) {nomeIndicador = n;valor = preco;}
+
+//função que retorna o valor do registro do ativo
+double RegistroValor::get_valor() {return valor;}
+
+//função que retorna o nome indicador do ativo
+string RegistroValor::get_nome() {return nomeIndicador;}
 

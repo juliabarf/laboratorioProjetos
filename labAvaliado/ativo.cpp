@@ -1,7 +1,3 @@
-//
-// Created by julia on 04/05/2026.
-//
-
 #include "ativo.h"
 #include <iostream>
 using namespace std;
@@ -16,21 +12,20 @@ string Ativo::getNome() {return nomeAtivo;}
 void Ativo::adicionarRegistro(RegistroValor r) {registros.push_back(r);}
 
 //função que realiza a média móvel
-void Ativo::media_movel() {
-    cout<<"\n\nMédia móvel do ativo " << nomeAtivo << ": (";
-    if (registros.size() < 3) {cout << "Dados insuficientes";}
+double Ativo::media_movel() {
 
-    else if (registros.size() > 3) {
-        for (int i = 0; i <= registros.size() - 3; i++) {
-            double soma,media;
-            soma = registros[i].get_valor() + registros[i+1].get_valor() + registros[i+2].get_valor();
-            media = soma/3;
-
-            cout << media;
-            if (i < registros.size() - 3) {cout << ", ";}
-        }
+    cout<<"\nMédia móvel do ativo " << nomeAtivo << ": ";
+    if (registros.size() < 3) {cout << "Dados insuficientes";return 0;}
+    double media = 0;
+    vector<double> medias;
+    for (int i = 0; i <= registros.size() - 3; i++) {
+        double soma = registros[i].get_valor() +registros[i + 1].get_valor() + registros[i + 2].get_valor();
+        media = soma / 3;
+        cout << media;
+        if (i < registros.size() - 3) {cout << " ";}
     }
-    cout << ")";
+    medias.push_back(media);
+    return media;
 }
 
 //função que exibe os registros dos ativos cadastrados

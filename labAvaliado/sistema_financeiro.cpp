@@ -1,6 +1,3 @@
-//
-// Created by julia on 06/05/2026.
-//
 #include "sistema_financeiro.h"
 #include <iostream>
 using namespace std;
@@ -31,7 +28,9 @@ void SistemaFinanceiro::adicionar_registro(string nomeAtivo, RegistroValor regis
 
 //chama a função que calcula a média móvel para casa ativo cadastrado
 void SistemaFinanceiro::exibir_media() {
-    for (int i = 0; i < ativos.size(); i++) {ativos[i].media_movel();}
+    for (int i = 0; i < ativos.size(); i++) {
+        ativos[i].media_movel();
+    }
 }
 
 //função que lista todos os ativos
@@ -42,3 +41,4 @@ void SistemaFinanceiro::listar_ativos() {
         ativos[i].exibirRelatorio();
     }
 }
+

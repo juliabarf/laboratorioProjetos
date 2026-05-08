@@ -70,13 +70,6 @@ void opcoes(int opcao, SistemaFinanceiro &sistema) {
 
     //opção que chama a função que calcula a media móvel
     else if (opcao == 3) {sistema.exibir_media();}
-
-    else if (opcao == 4) {
-        cout << "opção 4"<< endl;
-    }
-    else if (opcao == 5) {
-        cout << "opção 5"<< endl;
-    }
 }
 
 //função principal
@@ -117,13 +110,14 @@ int main() {
     acao3.adicionarRegistro(RegistroValor("REG7", 45));
     sistema.inserir_ativo(acao3);
 
-
     string resposta = "s";
+
     while (resposta == "s" || resposta == "S") {
         cout << "------ MENU ------" << endl;
         cout << "1 - Inserção de um novo ativo." << endl;
         cout << "2 - Inserção de um novo registro de valor." << endl;
         cout << "3 - Cálculo da evolução da média móvel." << endl;
+
 
         cout << "Escolha uma opcao: ";
         cin >> opcao;
@@ -132,7 +126,8 @@ int main() {
         cout << "\nDeseja continuar? (s/n)" << endl;
         cin >> resposta;
     }
-    cout << "Programa encerrado"<< endl;
-
+    if (resposta != "n" && resposta != "N") {cout << "Opção inválida!" << endl;}
+    else
+        cout << "Programa encerrado"<< endl;
     return 0;
 }

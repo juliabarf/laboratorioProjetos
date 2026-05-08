@@ -1,8 +1,3 @@
-//
-// Created by julia on 02/05/2026.
-//
-
-
 #include "registro_valor.h"
 #include <iostream>
 using namespace std;

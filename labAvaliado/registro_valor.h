@@ -1,7 +1,3 @@
-//
-// Created by julia on 02/05/2026.
-//
-
 #include <string>
 using namespace std;
 

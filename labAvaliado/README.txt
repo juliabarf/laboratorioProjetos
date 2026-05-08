@@ -1,8 +1,10 @@
-Antes de executar o programa, é preciso compilar os arquivos juntos. Para compilar os arquivos eu compilei tudo junto
-utilizei a linha debaixo para compilar:
+Antes de executar o programa, é preciso compilar os arquivos juntos. Para compilar os arquivos eu compilei tudo junto. Utilizei a linha debaixo para compilar:
+
     g++ main.cpp ativo.cpp registro_valor.cpp sistema_financeiro.cpp -o main
+
 Ou digitar "make" dentro do diretorio do projeto.
 Depois de compilar os arquivos vai ser possível rodar o executável. Para executar o programa eu utilizo a linha debaixo:
+
     ./main
 
 Funcionamento de menu:

@@ -8,6 +8,7 @@ class SistemaFinanceiro {
         void adicionar_registro(string nome, RegistroValor r);
         void exibir_media();
         void listar_ativos();
+        void ordena_media();
     private:
         vector<Ativo> ativos;
 };

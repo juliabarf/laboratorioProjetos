@@ -28,8 +28,8 @@ void cadastrar(string n, SistemaFinanceiro &sistema) {
 }
 
 //função que armazena as operações de cada opção
-void opcoes(int opcao, SistemaFinanceiro &sistema) {
-    if (opcao == 1) {
+void opcoes(string opcao, SistemaFinanceiro &sistema) {
+    if (opcao == "1") {
         string nome_novoAtivo;
 
         cout << "Para inserir um ativo, informe os dados.\n";
@@ -46,7 +46,7 @@ void opcoes(int opcao, SistemaFinanceiro &sistema) {
     }
 
     //função que insere registros em um ativo já existente
-    else if (opcao == 2) {
+    else if (opcao == "2") {
         string nomeAtivo, registroAtivo;
         double valorAtivo;
 
@@ -69,25 +69,19 @@ void opcoes(int opcao, SistemaFinanceiro &sistema) {
     }
 
     //opção que chama a função que calcula a media móvel
-    else if (opcao == 3) {sistema.exibir_media();}
+    else if (opcao == "3") {sistema.exibir_media();}
+    else if (opcao == "4") {sistema.ordena_media();}
+    else
+        cout << "opção inválida";
+
 }
 
 //função principal
 int main() {
-    int opcao;
+    string opcao;
     SistemaFinanceiro sistema;
 
     // ativos cadastrados
-    Ativo acao("PETRA");
-    acao.adicionarRegistro(RegistroValor("REG1", 10));
-    acao.adicionarRegistro(RegistroValor("REG2", 12));
-    acao.adicionarRegistro(RegistroValor("REG3", 14));
-    acao.adicionarRegistro(RegistroValor("REG4", 10));
-    acao.adicionarRegistro(RegistroValor("REG5", 6));
-    acao.adicionarRegistro(RegistroValor("REG6", 15));
-    acao.adicionarRegistro(RegistroValor("REG7", 18));
-    sistema.inserir_ativo(acao);
-
     Ativo acao2("VALE3");
     acao2.adicionarRegistro(RegistroValor("REG1", 20));
     acao2.adicionarRegistro(RegistroValor("REG2", 22));
@@ -97,6 +91,16 @@ int main() {
     acao2.adicionarRegistro(RegistroValor("REG6", 30));
     acao2.adicionarRegistro(RegistroValor("REG7", 32));
     sistema.inserir_ativo(acao2);
+
+    Ativo acao("PETRA");
+    acao.adicionarRegistro(RegistroValor("REG1", 10));
+    acao.adicionarRegistro(RegistroValor("REG2", 12));
+    acao.adicionarRegistro(RegistroValor("REG3", 14));
+    acao.adicionarRegistro(RegistroValor("REG4", 10));
+    acao.adicionarRegistro(RegistroValor("REG5", 6));
+    acao.adicionarRegistro(RegistroValor("REG6", 15));
+    acao.adicionarRegistro(RegistroValor("REG7", 18));
+    sistema.inserir_ativo(acao);
 
 
     Ativo acao3("ITUB4");
@@ -109,15 +113,18 @@ int main() {
     acao3.adicionarRegistro(RegistroValor("REG7", 17));
     acao3.adicionarRegistro(RegistroValor("REG7", 45));
     sistema.inserir_ativo(acao3);
+    acao.media_movel();
+
+    sistema.ordena_media();
 
     string resposta = "s";
 
     while (resposta == "s" || resposta == "S") {
-        cout << "------ MENU ------" << endl;
-        cout << "1 - Inserção de um novo ativo." << endl;
-        cout << "2 - Inserção de um novo registro de valor." << endl;
-        cout << "3 - Cálculo da evolução da média móvel." << endl;
-
+        cout << "\n------ MENU ------" << endl;
+        cout << "1 - Inserir um novo ativo." << endl;
+        cout << "2 - Inserir um novo registro de valor." << endl;
+        cout << "3 - Exibir média móvel." << endl;
+        cout << "4 - Exibir média móvel em ordem crescente." << endl;
 
         cout << "Escolha uma opcao: ";
         cin >> opcao;

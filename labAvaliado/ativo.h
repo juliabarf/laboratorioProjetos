@@ -1,22 +1,26 @@
-//
-// Created by julia on 04/05/2026.
-//
-
 #include <string>
 #include <vector>
 #include "registro_valor.h"
 
+using namespace std;
+
+struct Media {
+    string nome_ativo;
+    double ultima_media;
+};
+
 class Ativo {
+
     public:
         Ativo(string nome);
-        void adicionarRegistro(RegistroValor r);
-        void exibirRelatorio();
-        double media_movel();
         string getNome();
+        void adicionarRegistro(RegistroValor r);
+        vector<Media> media_movel();
+        vector<Media> ordena_media(vector<Media> media);
+        void exibirRelatorio();
 
     private:
         string nomeAtivo;
         vector<RegistroValor> registros;
-
-
 };
+

@@ -13,5 +13,6 @@ Funcionamento de menu:
     1 - inserir ativo novo
     2 - inserir novos registros em um ativo existente
     3 - exibe a média móvel de cada ativo.
+    4 - exibe os ativos de forma ordenada e indica se há uma anormalidade
     Para selecionar uma das opções é preciso inserir o número respectivo a opção que o usuario quer.
     Ao digitar algo diferente de "s" ou "S", o programa será encerrado, então preste atenção ao digitar se deseja continuar ou não e ao digitar uma opção inválida.

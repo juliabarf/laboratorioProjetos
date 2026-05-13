@@ -8,8 +8,7 @@
 #include "sistema_financeiro.h"
 using namespace std;
 
-
-//função que faz o cadastri de um novo ativo
+//função que faz o cadastro de um novo ativo
 void cadastrar(string n, SistemaFinanceiro &sistema) {
     Ativo novoAtivo(n);
     string nome_registro;
@@ -50,30 +49,42 @@ void opcoes(string opcao, SistemaFinanceiro &sistema) {
         string nomeAtivo, registroAtivo;
         double valorAtivo;
 
-        cout << "Escreva o nome do ativo: ";
+        cout << "Nome do ativo: ";
         cin >> nomeAtivo;
 
         if (sistema.localiza_ativo(nomeAtivo) == "encontrado") {
             cin.ignore();
-
-            cout << "Escreva o nome do registro: ";
+            cout << "Nome do registro: ";
             getline(cin, registroAtivo);
-
             cout << "Valor do registro: ";
             cin >> valorAtivo;
 
-            sistema.adicionar_registro(nomeAtivo,RegistroValor(registroAtivo, valorAtivo));
-            sistema.listar_ativos();
-        } else
-            cout << "Ativo não encontrado" << endl;
+            sistema.adicionar_registro(nomeAtivo, RegistroValor(registroAtivo, valorAtivo));
+            cout << "\nRegistro adicionado!" << endl;
+        } else {
+            cout << "Ativo não encontrado!" << endl;
+        }
     }
 
-    //opção que chama a função que calcula a media móvel
     else if (opcao == "3") {sistema.exibir_media();}
-    else if (opcao == "4") {sistema.ordena_media();}
-    else
-        cout << "opção inválida";
 
+    else if (opcao == "4") {sistema.ordena_media();}
+
+    else {cout << "Opção inválida! Escolha 1, 2, 3 ou 4." << endl;}
+}
+
+// menu do programa
+void mostrar_menu() {
+    cout << endl;
+    cout << "         SISTEMA FINANCEIRO                        " << endl;
+    cout << endl;
+    cout << "1 - Inserir novo ativo                             " << endl;
+    cout << "2 - Adicionar registro de valor                    " << endl;
+    cout << "3 - Exibir as médias móveis dos ativos             " << endl;
+    cout << "4 - Exibir ativos ordenados e variação anormal     " << endl;
+    cout << "0 - SAIR                                           " << endl;
+    cout << endl;
+    cout << "Escolha uma opção: ";
 }
 
 //função principal
@@ -81,50 +92,43 @@ int main() {
     string opcao;
     SistemaFinanceiro sistema;
 
-    // ativos cadastrados
-    Ativo acao2("VALE3");
-    acao2.adicionarRegistro(RegistroValor("REG1", 20));
-    acao2.adicionarRegistro(RegistroValor("REG2", 22));
-    acao2.adicionarRegistro(RegistroValor("REG3", 24));
-    acao2.adicionarRegistro(RegistroValor("REG4", 26));
-    acao2.adicionarRegistro(RegistroValor("REG5", 28));
-    acao2.adicionarRegistro(RegistroValor("REG6", 30));
-    acao2.adicionarRegistro(RegistroValor("REG7", 32));
-    sistema.inserir_ativo(acao2);
+    // ✅ Ativos de teste (já com dados suficientes)
+    Ativo vale3("VALE3");
+    vale3.adicionarRegistro(RegistroValor("REG1", 20));
+    vale3.adicionarRegistro(RegistroValor("REG2", 22));
+    vale3.adicionarRegistro(RegistroValor("REG3", 24));
+    vale3.adicionarRegistro(RegistroValor("REG4", 26));
+    vale3.adicionarRegistro(RegistroValor("REG5", 28));
+    vale3.adicionarRegistro(RegistroValor("REG6", 30));
+    sistema.inserir_ativo(vale3);
 
-    Ativo acao("PETRA");
-    acao.adicionarRegistro(RegistroValor("REG1", 10));
-    acao.adicionarRegistro(RegistroValor("REG2", 12));
-    acao.adicionarRegistro(RegistroValor("REG3", 14));
-    acao.adicionarRegistro(RegistroValor("REG4", 10));
-    acao.adicionarRegistro(RegistroValor("REG5", 6));
-    acao.adicionarRegistro(RegistroValor("REG6", 15));
-    acao.adicionarRegistro(RegistroValor("REG7", 18));
-    sistema.inserir_ativo(acao);
+    Ativo petra("PETRA");
+    petra.adicionarRegistro(RegistroValor("REG1", 10));
+    petra.adicionarRegistro(RegistroValor("REG2", 12));
+    petra.adicionarRegistro(RegistroValor("REG3", 14));
+    petra.adicionarRegistro(RegistroValor("REG4", 10));
+    petra.adicionarRegistro(RegistroValor("REG5", 6));
+    petra.adicionarRegistro(RegistroValor("REG6", 15));
+    sistema.inserir_ativo(petra);
 
-
-    Ativo acao3("ITUB4");
-    acao3.adicionarRegistro(RegistroValor("REG1", 5));
-    acao3.adicionarRegistro(RegistroValor("REG2", 7));
-    acao3.adicionarRegistro(RegistroValor("REG3", 9));
-    acao3.adicionarRegistro(RegistroValor("REG4", 11));
-    acao3.adicionarRegistro(RegistroValor("REG5", 13));
-    acao3.adicionarRegistro(RegistroValor("REG6", 15));
-    acao3.adicionarRegistro(RegistroValor("REG7", 17));
-    acao3.adicionarRegistro(RegistroValor("REG7", 45));
-    sistema.inserir_ativo(acao3);
-    acao.media_movel();
-
-    sistema.ordena_media();
+    Ativo itub4("ITUB4");
+    itub4.adicionarRegistro(RegistroValor("REG1", 5));
+    itub4.adicionarRegistro(RegistroValor("REG2", 7));
+    itub4.adicionarRegistro(RegistroValor("REG3", 9));
+    itub4.adicionarRegistro(RegistroValor("REG4", 11));
+    itub4.adicionarRegistro(RegistroValor("REG5", 13));
+    itub4.adicionarRegistro(RegistroValor("REG6", 15));
+    itub4.adicionarRegistro(RegistroValor("REG7", 45));
+    sistema.inserir_ativo(itub4);
 
     string resposta = "s";
 
     while (resposta == "s" || resposta == "S") {
-        cout << "\n------ MENU ------" << endl;
-        cout << "1 - Inserir um novo ativo." << endl;
-        cout << "2 - Inserir um novo registro de valor." << endl;
-        cout << "3 - Exibir média móvel." << endl;
-        cout << "4 - Exibir média móvel em ordem crescente." << endl;
+        cout << "\n             MENU           "                          << endl;
+        cout << "1 - Inserir um novo ativo."                              << endl;
+        cout << "2 - Inserir um novo registro de valor."                  << endl;
+        cout << "3 - Exibir média móvel."                                 << endl;
+        cout << "4 - Exibir média móvel em ordem crescente e variação"    << endl;
 
         cout << "Escolha uma opcao: ";
         cin >> opcao;
@@ -136,5 +140,6 @@ int main() {
     if (resposta != "n" && resposta != "N") {cout << "Opção inválida!" << endl;}
     else
         cout << "Programa encerrado"<< endl;
+
     return 0;
 }

@@ -30,7 +30,7 @@ void SistemaFinanceiro::adicionar_registro(string nomeAtivo, RegistroValor regis
     }
 }
 
-// ✅ OPÇÃO 3: Exibe TODAS as médias móveis de cada ativo
+// exibe todas as médias móveis de cada ativo
 void SistemaFinanceiro::exibir_media() {
     if (ativos.size() == 0) {
         cout << "\nNenhum ativo cadastrado!" << endl;
@@ -43,7 +43,7 @@ void SistemaFinanceiro::exibir_media() {
     }
 }
 
-// ✅ OPÇÃO 4: Análise da ÚLTIMA média + ordenação
+//  ordenação + análise da última média
 void SistemaFinanceiro::ordena_media() {
     if (ativos.size() == 0) {
         cout << "Nenhum ativo cadastrado!" << endl;
@@ -52,7 +52,7 @@ void SistemaFinanceiro::ordena_media() {
 
     vector<Media> todasUltimasMedias;
 
-    // 1. PRIMEIRO: Coleta TODAS as últimas médias
+    // coleta todas as últimas médias
     for (size_t i = 0; i < ativos.size(); i++) {
         vector<Media> mediasAtivo = ativos[i].media_movel();
         if (mediasAtivo.size() > 0) {
@@ -60,20 +60,20 @@ void SistemaFinanceiro::ordena_media() {
         }
     }
 
-    // 2. Ordena as últimas médias
+    // ordena as últimas médias
     vector<Media> mediasOrdenadas = ativos[0].ordena_media(todasUltimasMedias);
 
-    // 3. PRIMEIRO: Exibe ordenadas
+    // exibe ordenadas
     cout << "\nATIVOS ORDENADOS:" << endl;
     for (size_t i = 0; i < mediasOrdenadas.size(); i++) {
         cout << i + 1 << ". " << mediasOrdenadas[i].nome_ativo
              << ": " << mediasOrdenadas[i].ultima_media << endl;
     }
 
-    // 4. DEPOIS: Análise de variação de CADA ativo
+    // análise de variação de cada ativo
     cout << "\nVARIAÇÃO:" << endl;
     for (size_t i = 0; i < ativos.size(); i++) {
-        ativos[i].analisar_ultima_media();  // Exibe última + variação
+        ativos[i].analisa_media();  // Exibe última + variação
     }
 }
 //função que lista todos os ativos

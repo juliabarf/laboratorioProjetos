@@ -14,8 +14,6 @@ struct AnaliseMedia {
     bool tem_anormal;
 };
 
- // Nova função
-
 class Ativo {
 
     public:
@@ -25,7 +23,7 @@ class Ativo {
         vector<Media> media_movel();
         vector<Media> ordena_media(vector<Media> media);
         void exibirRelatorio();
-        vector<AnaliseMedia> analisar_ultima_media();
+        vector<AnaliseMedia> analisa_media();
 
     private:
         string nomeAtivo;

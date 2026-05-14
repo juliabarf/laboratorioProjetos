@@ -4,12 +4,12 @@
 
 using namespace std;
 
-// 🔥 FUNÇÕES AUXILIARES PARA VARIAÇÃO (reutilizáveis)
-bool is_variacao_anormal(double variacao) {
+// função para verificar se há variação anormal
+bool variacao_anormal(double variacao) {
     return (variacao > 10 || variacao < -10);
 }
 
-double calcular_maior_variacao(double variacao_atual, double variacao_maxima) {
+double calcula_maior_variacao(double variacao_atual, double variacao_maxima) {
     if (variacao_atual > variacao_maxima) {
         return variacao_atual;
     }
@@ -46,14 +46,14 @@ vector<Media> Ativo::media_movel() {
         cout << media;
         if (i < registros.size() - 3) {cout << " ";}
 
-        mediaFinal.push_back({nomeAtivo, media});  // Salva todas
+        // salva apenas a última
+        if (i == registros.size() - 3) {mediaFinal.push_back({nomeAtivo, media});}
     }
     cout << endl;
     return mediaFinal;
 }
 
-
-vector<AnaliseMedia> Ativo::analisar_ultima_media() {
+vector<AnaliseMedia> Ativo::analisa_media() {
     vector<AnaliseMedia> analiseFinal;
 
     if (registros.size() < 3) {
@@ -66,11 +66,9 @@ vector<AnaliseMedia> Ativo::analisar_ultima_media() {
     double variacao_maxima = 0;
     bool tem_anormal = false;
 
-    // Calcula todas as médias PARA análise
+    // calcula todas as médias para análise
     for (size_t i = 0; i <= registros.size() - 3; i++) {
-        double soma = registros[i].get_valor() +
-                     registros[i + 1].get_valor() +
-                     registros[i + 2].get_valor();
+        double soma = registros[i].get_valor() + registros[i + 1].get_valor() + registros[i + 2].get_valor();
 
         double media_atual = soma / 3.0;
         ultimaMedia = media_atual;
@@ -78,21 +76,18 @@ vector<AnaliseMedia> Ativo::analisar_ultima_media() {
         // analise de variação
         if (i > 0) {
             double variacao = (media_atual - media_anterior) / media_anterior * 100;
-            variacao_maxima = calcular_maior_variacao(variacao, variacao_maxima);
-            if (is_variacao_anormal(variacao)) {
-                tem_anormal = true;
-            }
+            variacao_maxima = calcula_maior_variacao(variacao, variacao_maxima);
+            //cout << variacao << " "<< endl;
+            //cout << "variação max: "<< variacao_maxima << endl;
+            if (variacao_anormal(variacao)) {tem_anormal = true;}
         }
         media_anterior = media_atual;
     }
 
     // exibe o resultado
     cout << nomeAtivo <<" | Maior variação: " << variacao_maxima << "%";
-    if (tem_anormal) {
-        cout << " ANORMAL ";
-    } else {
-        cout << " NORMAL";
-    }
+    if (tem_anormal) {cout << " ANORMAL ";}
+    else {cout << " NORMAL";}
     cout << endl;
 
     analiseFinal.push_back({nomeAtivo, variacao_maxima, tem_anormal});

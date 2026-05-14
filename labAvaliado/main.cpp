@@ -14,8 +14,6 @@ void cadastrar(string n, SistemaFinanceiro &sistema) {
     string nome_registro;
     double valor_registro;
 
-    cin.ignore();
-
     cout << "Nome do registro: ";
     getline(cin, nome_registro);
 
@@ -53,7 +51,6 @@ void opcoes(string opcao, SistemaFinanceiro &sistema) {
         cin >> nomeAtivo;
 
         if (sistema.localiza_ativo(nomeAtivo) == "encontrado") {
-            cin.ignore();
             cout << "Nome do registro: ";
             getline(cin, registroAtivo);
             cout << "Valor do registro: ";
@@ -61,9 +58,8 @@ void opcoes(string opcao, SistemaFinanceiro &sistema) {
 
             sistema.adicionar_registro(nomeAtivo, RegistroValor(registroAtivo, valorAtivo));
             cout << "\nRegistro adicionado!" << endl;
-        } else {
-            cout << "Ativo não encontrado!" << endl;
-        }
+            sistema.listar_ativos();
+        } else {cout << "Ativo não encontrado!" << endl;}
     }
 
     else if (opcao == "3") {sistema.exibir_media();}
@@ -109,6 +105,8 @@ int main() {
     petra.adicionarRegistro(RegistroValor("REG4", 10));
     petra.adicionarRegistro(RegistroValor("REG5", 6));
     petra.adicionarRegistro(RegistroValor("REG6", 15));
+    petra.adicionarRegistro(RegistroValor("REG6", 18));
+
     sistema.inserir_ativo(petra);
 
     Ativo itub4("ITUB4");

@@ -14,6 +14,8 @@ void cadastrar(string n, SistemaFinanceiro &sistema) {
     string nome_registro;
     double valor_registro;
 
+    cin.ignore();
+
     cout << "Nome do registro: ";
     getline(cin, nome_registro);
 
@@ -51,6 +53,7 @@ void opcoes(string opcao, SistemaFinanceiro &sistema) {
         cin >> nomeAtivo;
 
         if (sistema.localiza_ativo(nomeAtivo) == "encontrado") {
+            cin.ignore();
             cout << "Nome do registro: ";
             getline(cin, registroAtivo);
             cout << "Valor do registro: ";

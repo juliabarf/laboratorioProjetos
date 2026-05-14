@@ -37,9 +37,9 @@ void SistemaFinanceiro::exibir_media() {
         return;
     }
 
-    cout << "\n=== TODAS AS MÉDIAS MÓVEIS ===" << endl;
+    cout << "\n------- MÉDIAS MÓVEIS --------" << endl;
     for (size_t i = 0; i < ativos.size(); i++) {
-        ativos[i].media_movel();  // ✅ Chama função que exibe TODAS
+        ativos[i].media_movel();
     }
 }
 
